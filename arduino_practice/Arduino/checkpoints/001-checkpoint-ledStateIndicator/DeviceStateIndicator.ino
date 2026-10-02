@@ -5,13 +5,13 @@ const int numberOfPins =sizeof(ledPins) / sizeof(ledPins[0]);
 
 enum class NodeState : uint8_t {
   STATE_BOOTING = 0,
-  STATE_READY = 10, 
+  STATE_READY = 1, 
   STATE_CLEAR = 2,
-  STATE_CAUTION = 15,
-  STATE_OBJECT_NEAR = 13,
-  STATE_SENSOR_ERROR = 27,
-  STATE_NETWORK_ERROR = 28,
-  STATE_OFFLINE = 31
+  STATE_CAUTION = 3,
+  STATE_OBJECT_NEAR = 4,
+  STATE_SENSOR_ERROR = 5,
+  STATE_NETWORK_ERROR = 6,
+  STATE_OFFLINE = 7,
 };
 
 void displayState(NodeState state) {
@@ -28,13 +28,13 @@ void setup() {
   // put your setup code here, to run once:
   for (int i = 0; i < numberOfPins; i++) {
     pinMode(ledPins[i], OUTPUT);
-  }const int maxNumberStatus = 4;
+  }
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  NodeState obj = NodeState::STATE_SENSOR_ERROR;
+  NodeState obj = NodeState::STATE_CAUTION;
 
   displayState(obj);
 
